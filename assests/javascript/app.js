@@ -2,31 +2,45 @@
 // Step 1: 
 //  Players will hit a start button which will automatically start the game.
 // The timer for the game will start ticking down (90 seconds). That's how much time they have to answer the questions
+var start = document.getElementById("start");
 
-var questions = [
-    {
-        prompt: "What team did Lionel Messi player for in the Fifa World Cup ? \n(a) Barcelona \n(b) Spain \n(c) Argentina \n(d) Uruguay",
-        answer: "c"
+var quiz = document.getElementById("quiz");
 
-    }, 
-    {
-        prompt: "Who won the 2018 Fifa World Cup? \n(a) France \n(b) Russia \n(c) Croatia \n(d) Argentina ", 
-        answer: "a"
-    }, 
-    {
-        prompt: "Where are the 2019 Fifa Women's World Cup being held?\n(a) England \n(b) South Korea \n(c) France \n(d) The United States", 
-        answer: "c"
-    }, 
-    {
-        prompt: "Fifa Women's World Cup, What player has scored the most goals in a World Cup? \n(a) Michelle Akers \n(b) Alex Morgan \n(c) Christiane Roziera", 
-        answer: "b"
-    }, 
-    {   prompt: "What country has won the most Fifa World Cups? \n(a) Italy \n(b) Germany \(c) Uruguay \n(d) Brazil",
-        answer: "d"
+var question = document.getElementById("question");
 
-    }
+var counter = document.getElementById("counter");
 
-]
+var timeGauge = document.getElementById("timeGuage");
+
+var choiceA = document.getElementById("A")
+var choiceB = document.getElementById("B")
+var choiceC = document.getElementById("C")
+var choiceD = document.getElementById("D")
+
+// var questions = [
+//     {
+//         question: "What team did Lionel Messi player for in the Fifa World Cup ? \n(a) Barcelona \n(b) Spain \n(c) Argentina \n(d) Uruguay",
+//         answer: "c"
+
+//     }, 
+//     {
+//         question: "Who won the 2018 Fifa World Cup? \n(a) France \n(b) Russia \n(c) Croatia \n(d) Argentina ", 
+//         answer: "a"
+//     }, 
+//     {
+//         question: "Where are the 2019 Fifa Women's World Cup being held?\n(a) England \n(b) South Korea \n(c) France \n(d) The United States", 
+//         answer: "c"
+//     }, 
+//     {
+//         question: "Fifa Women's World Cup, What player has scored the most goals in a World Cup? \n(a) Michelle Akers \n(b) Alex Morgan \n(c) Christiane Roziera \n(d) Beyonce", 
+//         answer: "b"
+//     }, 
+//     {   question: "What country has won the most Fifa World Cups? \n(a) Italy \n(b) Germany \(c) Uruguay \n(d) Brazil",
+//         answer: "d"
+
+//     }
+
+// ]
 var score = 0; 
 
 for ( var i=0; i < questions.length; i++){
