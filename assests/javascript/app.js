@@ -5,14 +5,14 @@
 var start = document.getElementById("start");
 start.addEventListener("click",startQuiz);
 var timer; 
-function startQuiz(){
-    start.style.display = "none";
-    counter();
-    timer = setInterval(counter, 1000);
-    question();
-    quiz.style.display = "block";
+// function startQuiz(){
+//     start.style.display = "none";
+//     renderCounter();
+//     timer = setInterval(counter, 1000);
+//     renderQuestion();
+//     quiz.style.display = "block";
 
-}
+// }
 
 var quiz = document.getElementById("quiz");
 
@@ -95,7 +95,7 @@ function renderQuestion(){
     var q = questions[runningQuestion];
     question.innerHTML = "<p>"+ q.question +"</p>";
     choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
+    choiceB.innerHTML = q.choiceB;  
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 } 
@@ -103,9 +103,9 @@ function renderQuestion(){
 
 function startQuiz() {
 start.style.display = "none";
-renderQuestion();
+    renderQuestion();
 quiz.style.display= "block";
-counter();
+ renderCounter();
 timer = setInterval(counter, 1000);
 
 
@@ -113,23 +113,32 @@ clearInterval();
 }
 
 
-function counter(){
+function renderCounter(){
     if (count <= questionTime){
     counter.innerHTML = count;
-    timeGauge.style.width = count * gaugeUnit + "px" ;
+    // timeGauge.style.width = renderCounter * gaugeUnit + "px" ;
     count++;
     }else{
         count = 0;
-        answerIsWrong();
-        if(questionIndex < index){
-         questionIndex++;
-         question();
+        answerIsWrong()
+        if(runningQuestion < lastQuestion){
+         runningQuestion++;
+         renderQuestion();
         } else { clearInterval(timer)
             score();
         }
 
 
     }
+}
+
+var timer; 
+function startQuiz(){
+    start.style.display = "none";
+    renderCounter();
+    timer = setInterval(counter, 1000);
+    renderQuestion();
+    quiz.style.display = "block";
 }
 // for (var i = 0; i < questions.length; i++) {
 //     var response = window.prompt(questions[i].prompt);
@@ -147,32 +156,39 @@ function counter(){
 // Once the timer stops if the player answered all the questions correctly, get All done 
 // at the end and how many they got right. 
 
+function score(){
+    scoreDiv.Container.style.display = "block";
+    var scorePercent = Math.round(100 * score / questions.length); 
 
+}
 function checkAnswer(answer){
     if(answer == questions[runningQuestion].correct){ 
         score++;
          answerIsCorreect();
     } else{
-        // answerIsWrong();
+        answerIsWrong();
     } 
-    if(runningQuestion < index){
-        count = 0; 
+    count = 0; 
+    if(runningQuestion < lastQuestion){
         runningQuestion++;
-        question();
+        renderQuestion();
     } else{
         clearInterval(timer);
         score();
     }
 }
 function answerIsCorreect(){
-    document.getElementById(runningQuestion).style.backgroundColor = "0f0";
+    document.getElementById(runningQuestion)
+
+
+}
+
+function answerIsWrong() {
+    document.getElementById(runningQuestion);
 }
 // Step 4: 
 // If timer stops and player failed to answer all wrong, the All done will show up at the end
 // but it will show how many incorrects he or she got. 
-function score(){
-    score.Container.style.display = "block";
-    var scorePercent = Math.round(100 * score / question.length);
-}
+
 // Step 5: 
 // If player wasn't able to answer all the way through will show how many are unanswered. 

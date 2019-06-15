@@ -1,0 +1,36 @@
+#start{
+    float: left;
+    background-color: aquamarine;
+    padding: 100px;
+    
+}
+
+#A{
+    float: left;
+    background-color:#bdd0c4;
+    padding: 25px;
+}
+
+#B{
+    float: left;
+    background-color: #9ab7d3;
+    padding: 25px;
+}
+
+#C{
+    float: left;
+    background-color: #f5d2d3;
+    padding: 25px;
+}
+
+#D{
+    float: left;
+    background-color: #dfccf1;
+    padding: 25px;
+}
+
+#question{
+    float: left;
+    width: 100%;
+    background-color: white;
+}
